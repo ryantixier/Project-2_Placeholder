@@ -50,4 +50,4 @@ PersonalBest.init(
   }
 );
 
-module.exports = Personal_Best;
+module.exports = PersonalBest;
