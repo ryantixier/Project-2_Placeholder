@@ -1,4 +1,4 @@
-const { Personal_Best } = require("../models");
+const { PersonalBest } = require("../models");
 
 const personalBestData = [
   {
@@ -90,6 +90,6 @@ const personalBestData = [
   },
 ];
 
-const seedPB = () => Personal_Best.bulkCreate(personalBestData);
+const seedPB = () => PersonalBest.bulkCreate(personalBestData);
 
 module.exports = seedPB;
