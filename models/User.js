@@ -23,13 +23,6 @@ User.init(
     password: {
       type: DataTypes.STRING,
       allowNull: false,
-      //   to move to user-route
-      validate: {
-        is: {
-          args: /^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[#$^+=!*()@%&]).{8,}$/,
-          msg: "The password must contain at least 8 characters including at least 1 uppercase, 1 lowercase and one digit.",
-        },
-      },
     },
   },
   {
