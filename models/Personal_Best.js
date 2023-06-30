@@ -11,10 +11,6 @@ PersonalBest.init(
       primaryKey: true,
       autoIncrement: true,
     },
-    record_name: {
-      type: DataTypes.STRING,
-      allowNull: false,
-    },
     record_value: {
       type: DataTypes.DECIMAL,
       allowNull: false,
@@ -23,14 +19,10 @@ PersonalBest.init(
       type: DataTypes.STRING,
       allowNull: false,
     },
-    record_date: {
-      type: DataTypes.DATE,
-      allowNull: false,
-    },
-    user_id: {
+    workout_id: {
       type: DataTypes.INTEGER,
       references: {
-        model: "user",
+        model: "workout",
         key: "id",
       },
     },
