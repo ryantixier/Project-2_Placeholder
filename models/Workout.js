@@ -19,10 +19,6 @@ Workout.init(
       type: DataTypes.DECIMAL,
       allowNull: false,
     },
-    timestamp: {
-      type: DataTypes.DATE,
-      allowNull: false,
-    },
     calories_burned: {
       type: DataTypes.INTEGER,
       allowNull: false,
@@ -31,13 +27,6 @@ Workout.init(
       type: DataTypes.INTEGER,
       references: {
         model: "user",
-        key: "id",
-      },
-    },
-    exercise_id: {
-      type: DataTypes.INTEGER,
-      references: {
-        model: "exercise",
         key: "id",
       },
     },

@@ -7,22 +7,17 @@ const Quote = require("./Quote");
 User.hasMany(Workout, {
   foreignKey: "user_id",
 });
+
 Workout.belongsTo(User, {
   foreignKey: "user_id",
 });
 
-Exercise.hasMany(Workout, {
-  foreignKey: "exercise_id",
-});
-Workout.belongsTo(Exercise, {
-  foreignKey: "exercise_id",
+Workout.belongsToMany(Exercise, {
+  through: PersonalBest,
+  foreignKey: "workout_id",
 });
 
-User.belongsToMany(Exercise, {
-  through: PersonalBest,
-  foreignKey: "user_id",
-});
-Exercise.belongsToMany(User, {
+Exercise.belongsToMany(Workout, {
   through: PersonalBest,
   foreignKey: "exercise_id",
 });
