@@ -3,11 +3,11 @@ const { User } = require("../models");
 const userData = [
   {
     username: "ThorpeSport",
-    password: "iLoveSwimm1ng",
+    password: "iLoveSwiMm1ng",
   },
   {
     username: "novikov78",
-    password: "i_lift_1k",
+    password: "i_liFt_1k",
   },
   {
     username: "dScali",
@@ -19,15 +19,15 @@ const userData = [
   },
   {
     username: "jMaddox",
-    password: "pr3ss1t",
+    password: "pr3Ss1t",
   },
   {
     username: "bBursford96",
-    password: "how_3ven",
+    password: "how_3vEn",
   },
   {
     username: "vladMeister",
-    password: "cantKeepm3Down",
+    password: "cantKeEpm3Down",
   },
 ];
 
