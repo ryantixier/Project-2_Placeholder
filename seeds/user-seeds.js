@@ -1,33 +1,34 @@
 const { User } = require("../models");
 
 const userData = [
+  //For testing, use password: Password1!
   {
     username: "ThorpeSport",
-    password: "iLoveSwiMm1ng",
+    password: "$2b$10$55yGAtynGqF6I6FOKUamQeqKaEtTOSoBDe3ttsNDMzmCAju/5O8Qi",
   },
   {
     username: "novikov78",
-    password: "i_liFt_1k",
+    password: "$2b$10$55yGAtynGqF6I6FOKUamQeqKaEtTOSoBDe3ttsNDMzmCAju/5O8Qi",
   },
   {
     username: "dScali",
-    password: "myWeirdSp0rt",
+    password: "$2b$10$55yGAtynGqF6I6FOKUamQeqKaEtTOSoBDe3ttsNDMzmCAju/5O8Qi",
   },
   {
     username: "jSalek",
-    password: "myWeirderSp0rt",
+    password: "$2b$10$55yGAtynGqF6I6FOKUamQeqKaEtTOSoBDe3ttsNDMzmCAju/5O8Qi",
   },
   {
     username: "jMaddox",
-    password: "pr3Ss1t",
+    password: "$2b$10$55yGAtynGqF6I6FOKUamQeqKaEtTOSoBDe3ttsNDMzmCAju/5O8Qi",
   },
   {
     username: "bBursford96",
-    password: "how_3vEn",
+    password: "$2b$10$55yGAtynGqF6I6FOKUamQeqKaEtTOSoBDe3ttsNDMzmCAju/5O8Qi",
   },
   {
     username: "vladMeister",
-    password: "cantKeEpm3Down",
+    password: "$2b$10$55yGAtynGqF6I6FOKUamQeqKaEtTOSoBDe3ttsNDMzmCAju/5O8Qi",
   },
 ];
 
