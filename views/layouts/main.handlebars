@@ -11,29 +11,29 @@
       crossorigin="anonymous"
     />
     <!-- favicon links -->
-    <link
+    {{! <link
       rel="apple-touch-icon"
       sizes="180x180"
-      href="favicon/android-chrome-192x192.png"
-    />
+      href="./favicon/android-chrome-192x192.png"
+    /> }}
     <link
       rel="icon"
       type="image/png"
-      sizes="32x32"
-      href="favicon/android-chrome-512x512.png"
+      {{! sizes="32x32" }}
+      href="./favicon/android-chrome-512x512.png"
     />
-    <link
+    {{! <link
       rel="icon"
       type="image/png"
       sizes="16x16"
-      href="favicon/apple-touch-icon.png"
+      href="./favicon/apple-touch-icon.png"
     />
-    <link rel="manifest" href="favicon/site.webmanifest" />
+    <link rel="manifest" href="./favicon/site.webmanifest" />
     <link
       rel="mask-icon"
-      href="favicon/safari-pinned-tab.svg"
+      href="./favicon/safari-pinned-tab.svg"
       color="#5bbad5"
-    />
+    /> }}
     <meta name="msapplication-TileColor" content="#ffc40d" />
     <meta name="theme-color" content="#f3ac1c" />
     <link
@@ -48,14 +48,191 @@
     <header>
       <h1>Welcome Workout Wizard</h1>
     </header>
-    <nav>
+    <nav class="navbar navbar-expand-lg bg-body-tertiary">
+      <div class="container-fluid">
+        <a class="navbar-brand" href="#">Navbar</a>
+        <button
+          class="navbar-toggler"
+          type="button"
+          data-bs-toggle="collapse"
+          data-bs-target="#navbarNav"
+          aria-controls="navbarNav"
+          aria-expanded="false"
+          aria-label="Toggle navigation"
+        >
+          <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarNav">
+          <ul class="navbar-nav">
+            <li class="nav-item">
+              <a class="nav-link" href="/">Home</a>
+            </li>
+            {{#if loggedIn}}
+
+              <li class="nav-item">
+                <button class="nav-link btn-no-style" id="logout">Log Out</button>
+              </li>
+            {{else}}
+              <li class="nav-item">
+                {{! <a class="nav-link" href="/login">Login</a> }}
+                <button
+                  type="button"
+                  class="btn btn-no-style nav-link"
+                  data-bs-toggle="modal"
+                  data-bs-target="#loginModal"
+                >
+                  Log In
+                </button>
+              </li>
+              <li class="nav-item">
+                {{! <a class="nav-link" href="#">Sign Up</a> }}
+                <button
+                  type="button"
+                  class="btn btn-no-style nav-link"
+                  data-bs-toggle="modal"
+                  data-bs-target="#signupModal"
+                >
+                  Sign Up
+                </button>
+              </li>
+            {{/if}}
+          </ul>
+        </div>
+      </div>
+    </nav>
+    <div
+      class="modal fade"
+      id="loginModal"
+      tabindex="-1"
+      aria-labelledby="loginModalLabel"
+      aria-hidden="true"
+    >
+      <div class="modal-dialog">
+        <div class="modal-content">
+          <div class="modal-header">
+            <h1 class="modal-title fs-5" id="loginModalLabel">Log In</h1>
+            <button
+              type="button"
+              class="btn-close"
+              data-bs-dismiss="modal"
+              aria-label="Close"
+            ></button>
+          </div>
+          <div class="modal-body">
+            <!-- FORM GOES BELOW -->
+            <form>
+              <div class="form-group">
+                <label for="usernameInputLogin">Username</label>
+                <input
+                  type="input"
+                  class="form-control"
+                  id="usernameInputLogin"
+                  aria-label="inputUsername"
+                  placeholder="Enter Username"
+                />
+              </div>
+              <div class="form-group">
+                <label for="passwordInputLogin">Password</label>
+                <input
+                  type="password"
+                  class="form-control"
+                  id="passwordInputLogin"
+                  placeholder="Enter Password"
+                />
+              </div>
+            </form>
+            <!-- FORM GOES ABOVE -->
+          </div>
+          <div class="modal-footer">
+            <button
+              type="button"
+              class="btn btn-secondary"
+              data-bs-dismiss="modal"
+            >
+              Close
+            </button>
+            <button type="button" class="btn btn-primary">Submit</button>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div
+      class="modal fade"
+      id="signupModal"
+      tabindex="-1"
+      aria-labelledby="signupModalLabel"
+      aria-hidden="true"
+    >
+      <div class="modal-dialog">
+        <div class="modal-content">
+          <div class="modal-header">
+            <h1 class="modal-title fs-5" id="signupModalLabel">Sign Up</h1>
+            <button
+              type="button"
+              class="btn-close"
+              data-bs-dismiss="modal"
+              aria-label="Close"
+            ></button>
+          </div>
+          <div class="modal-body">
+            <!-- FORM GOES BELOW -->
+            <form>
+              <div class="form-group">
+                <label for="email">Email</label>
+                <input
+                  type="email"
+                  name="email"
+                  class="form-control"
+                  id="email"
+                  aria-label="inputEmail"
+                  placeholder="Enter Email"
+                />
+              </div>
+              <div class="form-group">
+                <label for="username">Username</label>
+                <input
+                  type="input"
+                  name="username"
+                  class="form-control"
+                  id="username"
+                  aria-label="inputUsername"
+                  placeholder="Enter Username"
+                />
+              </div>
+              <div class="form-group">
+                <label for="password">Password</label>
+                <input
+                  type="password"
+                  name="password"
+                  class="form-control"
+                  id="password"
+                  placeholder="Enter Password"
+                />
+              </div>
+            </form>
+            <!-- FORM GOES ABOVE -->
+          </div>
+          <div class="modal-footer">
+            <button
+              type="button"
+              class="btn btn-secondary"
+              data-bs-dismiss="modal"
+            >
+              Close
+            </button>
+            <button type="button" class="btn btn-primary">Submit</button>
+          </div>
+        </div>
+      </div>
+    </div>
+    {{!-- <nav>
       <a href="/">Home</a>
       {{#if loggedIn}}
         <button id="logout" class="btn-no-style">Logout</button>
       {{else}}
         <a href="/login">Login</a>
       {{/if}}
-    </nav>
+    </nav> --}}
     {{{body}}}
     <script
       src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"
