@@ -5,28 +5,13 @@ router.get("/", async (req, res) => {
   // find all quotes
   try {
     const quoteData = await Quote.findAll({
-      include: [{ all: true }],
-    });
-    res.status(200).json(quoteData);
-  } catch (err) {
-    res.status(500).json(err);
-  }
-});
-
-router.get("/:id", async (req, res) => {
-  // find a quote by ID
-  try {
-    const quoteData = await Quote.findByPk(req.params.id, {
-      include: [{ all: true }],
+      attributes: ["author", ["text", "quote"]],
     });
 
-    if (!quoteData) {
-      res.status(404).json({
-        message: "Oops, we couldn't find that quote!",
-      });
-      return;
-    }
-    res.status(200).json(quoteData);
+    //produce a random quote from the array of objects
+    const quoteIndex = Math.floor(Math.random() * quoteData.length);
+    console.log(quoteData[quoteIndex].get({ plain: true }));
+    res.status(200).json(quoteData[quoteIndex].get({ plain: true }));
   } catch (err) {
     res.status(500).json(err);
   }
