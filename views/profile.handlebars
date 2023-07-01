@@ -1,1 +1,42 @@
-<h1>{{quote.quote}} -<span>{{quote.author}}</span></h1>
+{{!-- <h1>{{quote.quote}} -<span>{{quote.author}}</span></h1> --}}
+
+{{! Area-1 container - add to main.handlebars }}
+<section class="container">
+  {{! contains top row of information: QOTD and AREA 2 ("At a Glance...", "Today") }}
+  {{! QOTD div }}
+  <div class="row">
+    <h2>Welcome, Workout Wizard (Username)</h2>
+    <hr />
+    <div class="end col-md-4 px-3" id="left-box-outlines">
+      {{! render w get request }}
+      <h1>{{quote.quote}} ~<span>{{quote.author}}</span></h1>
+    </div>
+    {{! this div will change in content at h4, depending on page visited }}
+    <div class="center col-md-8">
+      <h4>At a Glance...</h4>
+      <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Qui hic
+        perferendis totam maxime sequi repellat a sint voluptate cum maiores?</p>
+    </div>
+  </div>
+</section>
+
+{{! Area 2 container }}
+<section class="container">
+  <div class="row">
+    <h2>Archive</h2>
+    <hr />
+    <div class="end col-md-4 px-3" id="left-box-outlines">
+      <h5>Previous Workouts...</h5>
+      <p>Workout from (Date of Previous Workout)</p>
+      <p>Workout from (Date of Previous Workout)</p>
+      <p>Workout from (Date of Previous Workout)</p>
+    </div>
+    <div class="center col-md-8">
+      <h5>Progress...</h5>
+      <p>Weight Change: (Tracked Weight Change)</p>
+      <p>Workouts Completed: (Tracked Workouts Completed)</p>
+      <p>Workout Streak: (Tracked Workout Streak)</p>
+    </div>
+  </div>
+
+</section>
