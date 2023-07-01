@@ -18,7 +18,7 @@ router.post("/", async (req, res) => {
         req.session.username = newUser.username;
         req.session.loggedIn = true;
 
-        res.json(newUser);
+        res.redirect("/");
       });
     } else {
       //TODO: send a message to user on the front end
@@ -55,8 +55,9 @@ router.post("/login", async (req, res) => {
       req.session.userId = user.id;
       req.session.username = user.username;
       req.session.loggedIn = true;
+      res.redirect("/");
 
-      res.json({ user, message: "You are now logged in!" });
+      // res.render("homepage", { user, loggedIn: true });
     });
   } catch (err) {
     res.status(400).json({ message: "No user account found!" });
