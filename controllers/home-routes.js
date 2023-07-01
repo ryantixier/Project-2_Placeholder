@@ -10,10 +10,16 @@ router.get("/", async (req, res) => {
     //produce a random quote from the array of objects
     const quoteIndex = Math.floor(Math.random() * quoteData.length);
     const quote = quoteData[quoteIndex].get({ plain: true });
-    res.render("homepage", {
-      loggedIn: req.session.loggedIn,
-      quote,
-    });
+    if (req.session.loggedIn) {
+      res.render("profile", {
+        loggedIn: req.session.loggedIn,
+        quote,
+      });
+    } else {
+      res.render("homepage", {
+        loggedIn: req.session.loggedIn,
+      });
+    }
   } catch (err) {
     console.log(err);
     res.status(500).json(err);
