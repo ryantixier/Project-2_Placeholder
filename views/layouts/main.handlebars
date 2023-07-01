@@ -120,11 +120,12 @@
           </div>
           <div class="modal-body">
             <!-- FORM GOES BELOW -->
-            <form>
+            <form action="/api/user/login" method="post">
               <div class="form-group">
                 <label for="usernameInputLogin">Username</label>
                 <input
                   type="input"
+                  name="username"
                   class="form-control"
                   id="usernameInputLogin"
                   aria-label="inputUsername"
@@ -135,12 +136,12 @@
                 <label for="passwordInputLogin">Password</label>
                 <input
                   type="password"
+                  name="password"
                   class="form-control"
                   id="passwordInputLogin"
                   placeholder="Enter Password"
                 />
               </div>
-            </form>
             <!-- FORM GOES ABOVE -->
           </div>
           <div class="modal-footer">
@@ -151,8 +152,9 @@
             >
               Close
             </button>
-            <button type="button" class="btn btn-primary">Submit</button>
+            <button type="submit" class="btn btn-primary">Submit</button>
           </div>
+            </form>
         </div>
       </div>
     </div>
@@ -176,8 +178,8 @@
           </div>
           <div class="modal-body">
             <!-- FORM GOES BELOW -->
-            <form>
-              <div class="form-group">
+            <form action="/api/user" method="post">
+              {{!-- <div class="form-group">
                 <label for="email">Email</label>
                 <input
                   type="email"
@@ -187,7 +189,7 @@
                   aria-label="inputEmail"
                   placeholder="Enter Email"
                 />
-              </div>
+              </div> --}}
               <div class="form-group">
                 <label for="username">Username</label>
                 <input
@@ -209,7 +211,6 @@
                   placeholder="Enter Password"
                 />
               </div>
-            </form>
             <!-- FORM GOES ABOVE -->
           </div>
           <div class="modal-footer">
@@ -220,8 +221,9 @@
             >
               Close
             </button>
-            <button type="button" class="btn btn-primary">Submit</button>
+            <button type="submit" class="btn btn-primary">Submit</button>
           </div>
+            </form>
         </div>
       </div>
     </div>

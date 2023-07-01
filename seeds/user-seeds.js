@@ -1,37 +1,40 @@
 const { User } = require("../models");
 
 const userData = [
-  //For testing, use password: Password1!
   {
     username: "ThorpeSport",
-    password: "$2b$10$55yGAtynGqF6I6FOKUamQeqKaEtTOSoBDe3ttsNDMzmCAju/5O8Qi",
+    password: "Password1!",
   },
   {
     username: "novikov78",
-    password: "$2b$10$55yGAtynGqF6I6FOKUamQeqKaEtTOSoBDe3ttsNDMzmCAju/5O8Qi",
+    password: "Password1!",
   },
   {
     username: "dScali",
-    password: "$2b$10$55yGAtynGqF6I6FOKUamQeqKaEtTOSoBDe3ttsNDMzmCAju/5O8Qi",
+    password: "Password1!",
   },
   {
     username: "jSalek",
-    password: "$2b$10$55yGAtynGqF6I6FOKUamQeqKaEtTOSoBDe3ttsNDMzmCAju/5O8Qi",
+    password: "Password1!",
   },
   {
     username: "jMaddox",
-    password: "$2b$10$55yGAtynGqF6I6FOKUamQeqKaEtTOSoBDe3ttsNDMzmCAju/5O8Qi",
+    password: "Password1!",
   },
   {
     username: "bBursford96",
-    password: "$2b$10$55yGAtynGqF6I6FOKUamQeqKaEtTOSoBDe3ttsNDMzmCAju/5O8Qi",
+    password: "Password1!",
   },
   {
     username: "vladMeister",
-    password: "$2b$10$55yGAtynGqF6I6FOKUamQeqKaEtTOSoBDe3ttsNDMzmCAju/5O8Qi",
+    password: "Password1!",
   },
 ];
 
-const seedUser = () => User.bulkCreate(userData);
+const seedUser = async () => {
+  for (const user of userData) {
+    await User.create(user);
+  }
+};
 
 module.exports = seedUser;
