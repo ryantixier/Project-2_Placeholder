@@ -1,13 +1,50 @@
-* {
+/*  */
+#headerFavicon {
+  width: 25%;
+}
+/*  */
+
+header {
   text-align: center;
+}
+
+h2 {
+  padding-top: 10px;
+  border-top: 5px;
+  border-top-style: double;
+  text-align: center;
+}
+
+.container {
+  padding: 5px;
 }
 
 .center {
   display: block;
   margin-left: auto;
   margin-right: auto;
+  text-align: center;
 }
 
-#headerFavicon {
-  width: 25%;
+.start {
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+  text-align: start;
 }
+
+.end {
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+  text-align: end;
+}
+
+#left-box-outlines {
+  border-right-style: ridge;
+  border-left-style: ridge;
+  border-radius: 10px;
+}
+
+/*  */
+/* END CODE RT 6/30   */
