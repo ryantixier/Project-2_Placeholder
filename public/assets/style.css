@@ -4,14 +4,28 @@
 }
 /*  */
 
+
+/* EK: */
+:root {
+  --darkest: #323232;
+  --darker: #902413;
+  --medium: #0757A1; 
+  --lighter: #C32809;
+  --lightest: #EEC139;
+  --white: #f2f2f2;
+}
+
+main {
+  background-color: var(--darkest);
+}
+/*  */
+
 header {
   text-align: center;
 }
 
 h2 {
   padding-top: 10px;
-  border-top: 5px;
-  border-top-style: double;
   text-align: center;
 }
 
@@ -48,3 +62,65 @@ h2 {
 
 /*  */
 /* END CODE RT 6/30   */
+
+.homeImg1 {
+  background: url('../images/ww_image_1.png') no-repeat center center fixed;
+}
+
+.homeImg2 {
+    background: url('../images/ww_image_2.png') no-repeat center center fixed;
+    
+}
+
+.homeImg3 {
+    background: url('../images/ww_image_3.png') no-repeat center center fixed;
+    
+}
+
+.wwHomeRow {
+  color: var(--white);
+  align-items: center;
+  height: 800px;
+  width: 100%;
+  background-size: cover;
+  -webkit-background-size: cover;
+  -moz-background-size: cover;
+  -o-background-size: cover;
+}
+
+#homeSignBtn {
+  border: solid 3px var(--darker);
+  color: var(--white);
+  transition: all 0.3s ease-in-out;
+}
+
+#homeSignBtn:hover {
+  border: solid 3px var(--medium);
+  background-color: var(--medium);
+  transition: all 0.3s ease-in-out;
+}
+
+#wideLogo {
+  visibility: visible;
+}
+
+#centeredLogo {
+  display: none;
+  justify-content: center;
+}
+
+@media screen and (max-width: 991px) {
+  #centeredLogo {
+    display: block;
+  }
+  #wideLogo {
+    display: none;
+  }
+} 
+
+
+
+
+
+/*  */
+/* END CODE EK 7/01 */
