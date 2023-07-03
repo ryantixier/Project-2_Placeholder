@@ -11,9 +11,9 @@
       <button
         type="button"
         class="btn-primary"
-        id="create-workout-button"
+        id="archive-button"
         data-bs-toggle="modal"
-        data-bs-target="#createWorkout"
+        data-bs-target="#archivedWorkout"
       >
         Workout Archive
       </button>
@@ -23,9 +23,9 @@
       <button
         type="button"
         class="btn-primary"
-        id="archive-button"
+        id="create-workout-button"
         data-bs-toggle="modal"
-        data-bs-target="#archivedWorkout"
+        data-bs-target="#createWorkout"
       >
         Create Workout
       </button>
@@ -46,6 +46,11 @@
     </div>
   </div>
 </section>
+
+<div class="row">
+  <div id="past-workouts"></div>
+</div>
+<script src="/js/workout.js"></script>
 
 {{! Area 2 container }}
 {{! <section class="container">

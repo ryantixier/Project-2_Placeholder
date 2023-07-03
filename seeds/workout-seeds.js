@@ -3,8 +3,8 @@ const { Workout, PersonalBest } = require("../models");
 const workoutData = [
   {
     data: {
-      comments: "chest day Friday",
-      duration: 1,
+      comments: "Chest day Friday",
+      duration: 50,
       calories_burned: 500,
       user_id: 1,
     },
@@ -18,6 +18,166 @@ const workoutData = [
         exercise_id: 2,
         record_value: 1,
         record_unit: "hour",
+      },
+    ],
+  },
+  {
+    data: {
+      comments: "Leg day Monday",
+      duration: 45,
+      calories_burned: 600,
+      user_id: 1,
+    },
+    pb: [
+      {
+        exercise_id: 3,
+        record_value: 300,
+        record_unit: "lbs",
+      },
+      {
+        exercise_id: 4,
+        record_value: 1,
+        record_unit: "hour",
+      },
+    ],
+  },
+  {
+    data: {
+      comments: "Arm day Wednesday",
+      duration: 50,
+      calories_burned: 400,
+      user_id: 2,
+    },
+    pb: [
+      {
+        exercise_id: 5,
+        record_value: 150,
+        record_unit: "lbs",
+      },
+      {
+        exercise_id: 6,
+        record_value: 1,
+        record_unit: "hour",
+      },
+    ],
+  },
+  {
+    data: {
+      comments: "Arm day Wednesday",
+      duration: 50,
+      calories_burned: 400,
+      user_id: 3,
+    },
+    pb: [
+      {
+        exercise_id: 5,
+        record_value: 150,
+        record_unit: "lbs",
+      },
+      {
+        exercise_id: 6,
+        record_value: 1,
+        record_unit: "hour",
+      },
+    ],
+  },
+  {
+    data: {
+      comments: "Arm day Wednesday",
+      duration: 50,
+      calories_burned: 400,
+      user_id: 4,
+    },
+    pb: [
+      {
+        exercise_id: 5,
+        record_value: 150,
+        record_unit: "lbs",
+      },
+      {
+        exercise_id: 6,
+        record_value: 1,
+        record_unit: "hour",
+      },
+    ],
+  },
+  {
+    data: {
+      comments: "Arm day Wednesday",
+      duration: 50,
+      calories_burned: 400,
+      user_id: 5,
+    },
+    pb: [
+      {
+        exercise_id: 5,
+        record_value: 150,
+        record_unit: "lbs",
+      },
+      {
+        exercise_id: 6,
+        record_value: 1,
+        record_unit: "hour",
+      },
+    ],
+  },
+  {
+    data: {
+      comments: "Arm day Wednesday",
+      duration: 50,
+      calories_burned: 400,
+      user_id: 5,
+    },
+    pb: [
+      {
+        exercise_id: 5,
+        record_value: 150,
+        record_unit: "lbs",
+      },
+      {
+        exercise_id: 6,
+        record_value: 1,
+        record_unit: "hour",
+      },
+    ],
+  },
+  {
+    data: {
+      comments: "Arm day Wednesday",
+      duration: 50,
+      calories_burned: 400,
+      user_id: 7,
+    },
+    pb: [
+      {
+        exercise_id: 5,
+        record_value: 150,
+        record_unit: "lbs",
+      },
+      {
+        exercise_id: 7,
+        record_value: 1,
+        record_unit: "mile",
+      },
+    ],
+  },
+  {
+    data: {
+      comments: "Arm day/Cardio Friday",
+      duration: 50,
+      calories_burned: 400,
+      user_id: 7,
+    },
+    pb: [
+      {
+        exercise_id: 5,
+        record_value: 150,
+        record_unit: "lbs",
+      },
+      {
+        exercise_id: 7,
+        record_value: 1,
+        record_unit: "mile",
       },
     ],
   },

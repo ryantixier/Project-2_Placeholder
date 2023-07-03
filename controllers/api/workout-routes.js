@@ -1,12 +1,28 @@
 const router = require("express").Router();
-const { Workout, User, Exercise } = require("../../models");
+const { Workout, User, Exercise, PersonalBest } = require("../../models");
 
-router.get("/", async (req, res) => {
+//get route for past workout data for a user
+router.get("/past-workouts", async (req, res) => {
   try {
-    const workout = await Workout.findAll({
-      include: [{ model: User }, { model: Exercise }],
+    const workouts = await Workout.findAll({
+      where: {
+        user_id: req.session.userId,
+      },
+      include: [
+        {
+          model: Exercise,
+          attributes: ["exercise_name", "intensity"],
+          through: {
+            model: PersonalBest,
+            attributes: ["record_value", "record_unit"],
+            as: "personalBest",
+            foreignKey: "workout_id",
+            otherKey: "exercise_id",
+          },
+        },
+      ],
     });
-    res.status(200).json(workout);
+    res.status(200).json(workouts);
   } catch (err) {
     res.status(500).json(err);
   }
