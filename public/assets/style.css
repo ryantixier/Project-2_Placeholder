@@ -85,6 +85,7 @@ h2 {
   align-items: center;
   height: 800px;
   width: 100%;
+  margin-left: 0 !important;
   background-size: cover;
   -webkit-background-size: cover;
   -moz-background-size: cover;
@@ -117,15 +118,6 @@ h2 {
   transition: all 0.3s ease-in-out;
 }
 
-#wideLogo {
-  visibility: visible;
-}
-
-#centeredLogo {
-  display: none;
-  justify-content: center;
-}
-
 /* #buttonStyled {
   position: relative;
   padding: 16px 30px;
@@ -147,6 +139,15 @@ h2 {
   transition: all 0.3s ease-in-out;
 } */
 
+#wideLogo {
+  visibility: visible;
+}
+
+#centeredLogo {
+  display: none;
+  justify-content: center;
+}
+
 @media screen and (max-width: 991px) {
   #centeredLogo {
     display: block;
@@ -155,5 +156,3 @@ h2 {
     display: none;
   }
 }
-
-/* END CODE EK 7/01 */
