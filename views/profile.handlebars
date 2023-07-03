@@ -17,6 +17,52 @@
       >
         Workout Archive
       </button>
+
+      <div
+        class="modal fade"
+        id="archivedWorkout"
+        tabindex="-1"
+        aria-labelledby="archivedWorkoutLabel"
+        aria-hidden="true"
+      >
+        <div class="modal-dialog">
+          <div class="modal-content">
+            <div class="modal-header">
+              <h1 class="modal-title fs-5" id="archivedWorkoutlabel">Past
+                Workouts</h1>
+              <button
+                type="button"
+                class="btn-close"
+                data-bs-dismiss="modal"
+                aria-label="Close"
+              ></button>
+            </div>
+            <div class="modal-body">
+              {{! INSERT MODAL CONTENT HERE }}
+              {{! INSERT MODAL CONTENT HERE }}
+              {{! INSERT MODAL CONTENT HERE }}
+              <h3>(Derek's linked past workout content here)</h3>
+              <h6>Example:</h6>
+              <p>Past workout 1</p>
+              <p>Past workout 2</p>
+              <p>Past workout 3</p>
+              <p>Past workout 4</p>
+              <p>Past workout 5</p>
+              <p>Past workout 6</p>
+              <p>Past workout 7</p>
+            </div>
+            <div class="modal-footer">
+              <button
+                type="button"
+                class="btn btn-secondary"
+                data-bs-dismiss="modal"
+              >Close</button>
+              <button type="button" class="btn btn-primary">View Previous</button>
+            </div>
+          </div>
+        </div>
+      </div>
+
     </div>
     {{! Create New Workout }}
     <div class="col-md-2" id="create-workout">
@@ -29,6 +75,44 @@
       >
         Create Workout
       </button>
+
+      <div
+        class="modal fade"
+        id="createWorkout"
+        tabindex="-1"
+        aria-labelledby="createWorkoutLabel"
+        aria-hidden="true"
+      >
+        <div class="modal-dialog">
+          <div class="modal-content">
+            <div class="modal-header">
+              <h1 class="modal-title fs-5" id="createWorkoutLabel">Create Your
+                Workout</h1>
+              <button
+                type="button"
+                class="btn-close"
+                data-bs-dismiss="modal"
+                aria-label="Close"
+              ></button>
+            </div>
+            <div class="modal-body">
+              {{! INSERT MODAL CONTENT HERE }}
+              {{! INSERT MODAL CONTENT HERE }}
+              {{! INSERT MODAL CONTENT HERE }}
+              <p>(Insert content form for creation of the workout)</p>
+            </div>
+            <div class="modal-footer">
+              <button
+                type="button"
+                class="btn btn-secondary"
+                data-bs-dismiss="modal"
+              >Close</button>
+              <button type="button" class="btn btn-primary">Save Workout</button>
+            </div>
+          </div>
+        </div>
+      </div>
+
     </div>
 
     <hr />
