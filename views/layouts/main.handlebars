@@ -44,15 +44,12 @@
           <ul class="navbar-nav">
             {{#if loggedIn}}
               <li class="nav-item">
-                <button class="nav-link btn-no-style" id="logout">Log Out</button>
+                <button class="nav-link btn btn-no-style" id="logout">Log Out</button>
               </li>
             {{else}}
               <li class="nav-item">
                 <button type="button" class="btn btn-no-style nav-link" id="buttonStyled" data-bs-toggle="modal" data-bs-target="#loginModal">Log In</button>
               </li>
-              {{!-- <li class="nav-item">
-                <button type="button" class="btn btn-no-style nav-link" data-bs-toggle="modal" data-bs-target="#signupModal">Sign Up</button>
-              </li> --}}
             {{/if}}
           </ul>
         </div>
