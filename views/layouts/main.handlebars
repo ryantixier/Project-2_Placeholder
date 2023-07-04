@@ -24,6 +24,8 @@
       integrity="sha384-9ndCyUaIbzAi2FUVXJi0CjmCapSmO7SnpJef0486qhLnuZ2cdeRhO02iuK6FUUVM"
       crossorigin="anonymous"
     />
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/animejs/3.2.1/anime.min.js"></script>
   </head>
   <body>
     <div class="container-fluid g-0">
@@ -32,12 +34,12 @@
       <div class="container-fluid">
         <div id="centeredLogo">
         <a class="navbar-brand" href="/">
-          <img src="/images/lilguy_with_eyes_workout_wizard_on_trans.png" height="125" width="125" alt="Workout Wizard Logo">
+          <img class="animeLilGuy" src="/images/lilguy_with_eyes_workout_wizard_on_trans.png" height="125" width="125" alt="Workout Wizard Logo">
         </a>
         </div>
         <div id="wideLogo">
         <a class="navbar-brand" href="/">
-          <img src="/images/lilguy_horiz_workout_wizard_on_trans copy.png" height="110" width="305" alt="Workout Wizard Logo"></a>
+          <img class="animeLilGuy" src="/images/lilguy_horiz_workout_wizard_on_trans copy.png" height="110" width="305" alt="Workout Wizard Logo"></a>
         </div>
         <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation"><span class="navbar-toggler-icon"></span></button>
         <div class="collapse navbar-collapse justify-content-end" id="navbarNav">
@@ -118,6 +120,7 @@
     {{#if loggedIn}}
       <script src="/js/logout.js"></script>
     {{/if}}
+    <script src="/js/anime.js"></script>
   </body>
 
 </html>

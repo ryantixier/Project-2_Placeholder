@@ -1,4 +1,5 @@
-const pastBtn = document.getElementById("archive-button");
+const pastBtn = $("#archive-button");
+const pastContainer = $("#past-workouts");
 
 //fetch call for past workouts
 async function getPastWorkouts() {
@@ -10,8 +11,7 @@ async function getPastWorkouts() {
 
 //workouts passed in is data retrieved from fetch call
 function displayWorkouts(workouts) {
-  $("#past-workouts").empty();
-  const workoutContainer = document.querySelector("#past-workouts");
+  pastContainer.empty();
   //looping through the workouts array for each workout
   workouts.forEach((workout) => {
     const createdAt = new Date(workout.createdAt);
@@ -19,20 +19,18 @@ function displayWorkouts(workouts) {
       createdAt.getMonth() + 1
     }-${createdAt.getDate()}-${createdAt.getFullYear()}`;
 
-    const workoutElement = document.createElement("p");
+    const workoutElement = `<p> WorkoutID ${workout.id} -Date: ${formattedDate}  - Duration: ${workout.duration} minutes, Calories Burned: ${workout.calories_burned}</p>`;
 
-    workoutElement.textContent = `WorkoutID ${workout.id} -Date: ${formattedDate}  - Duration: ${workout.duration} minutes, Calories Burned: ${workout.calories_burned}`;
-    workoutContainer.appendChild(workoutElement);
+    pastContainer.append(workoutElement);
     //looping through exercises array inside the workout loop to display exercise data
     workout.exercises.forEach((exercise) => {
-      const exerciseElement = document.createElement("li");
-      exerciseElement.textContent = `Exercise: ${exercise.exercise_name}, ${exercise.personalBest.record_value} ${exercise.personalBest.record_unit}`;
-      workoutContainer.appendChild(exerciseElement);
+      const exerciseElement = `<li>Exercise: ${exercise.exercise_name}, ${exercise.personalBest.record_value} ${exercise.personalBest.record_unit}</li>`;
+      pastContainer.append(exerciseElement);
     });
   });
 }
 
-pastBtn.addEventListener("click", getPastWorkouts);
+pastBtn.click(getPastWorkouts);
 
 $("#save-workout").click(function (e) {
   e.preventDefault();
