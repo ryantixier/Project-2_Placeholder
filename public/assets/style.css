@@ -112,9 +112,10 @@ h2 {
 #modalButton,
 #signUpModalButton,
 #add-exercise,
-#save-workout {
+#save-workout,
+#dropdownMenuButton {
   border: solid 3px var(--darker);
-  width: 8vw;
+  width: 75%;
   background-color: var(--white);
   color: var(--darkest);
   transition: all 0.3s ease-in-out;
@@ -166,6 +167,11 @@ h2 {
   background-color: var(--medium);
   color: var(--white);
   transition: all 0.3s ease-in-out;
+}
+
+#inputGroup-sizing {
+  border: 2px;
+  width: 50%;
 }
 
 #profileStyle {
