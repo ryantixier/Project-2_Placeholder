@@ -35,6 +35,24 @@ function displayWorkouts(workouts) {
 
 pastBtn.click(getPastWorkouts);
 
+//display current workout
+function displayWorkout(workout) {
+  const currentContainer = $("#current-workout");
+  currentContainer.empty();
+
+  const createdAt = new Date(workout.createdAt);
+  const formattedDate = `${
+    createdAt.getMonth() + 1
+  }-${createdAt.getDate()}-${createdAt.getFullYear()}`;
+
+  const workoutElem = `<p> Current Workout -Date: ${formattedDate}  - Duration: ${workout.duration} minutes, Calories Burned: ${workout.calories_burned}</p>`;
+  currentContainer.append(workoutElem);
+  workout.exercises.forEach((exercise) => {
+    const exerciseElem = `<li>Exercise: ${exercise.exercise_name}, ${exercise.exercise_desc}, ${exercise.personalBest.record_value} ${exercise.personalBest.record_unit}</li>`;
+    currentContainer.append(exerciseElem);
+  });
+}
+
 $("#save-workout").click(function (e) {
   e.preventDefault();
   //get the input values from the workout form
@@ -75,6 +93,16 @@ $("#save-workout").click(function (e) {
           $(`#unitInput${i}`).val("");
         }
         alert("Workout saved!");
+        $.ajax({
+          type: "GET",
+          url: `/api/workout/${data.id}`,
+          success: function (workout) {
+            displayWorkout(workout);
+          },
+          error: function () {
+            alert("error loading the workout");
+          },
+        });
       }
 
       $("#createWorkout").modal("hide");
