@@ -1,9 +1,9 @@
-<section class="container" id="profileStyle">
+<section class="container profileContainer" id="profileStyle">
   {{! contains top row of information: QOTD and AREA 2 ("At a Glance...", "Today") }}
   {{! QOTD div }}
   <div class="row">
     <div class="col-md-8">
-      <h2>Welcome, Workout Wizard (Username)</h2>
+      <h2>Welcome {{username}}</h2>
     </div>
     {{! View Workout Archive }}
     <div class="col-md-2" id="archive">
@@ -49,8 +49,13 @@
                 type="button"
                 class="btn btn-secondary"
                 data-bs-dismiss="modal"
+                id="modalButton"
               >Close</button>
-              <button type="button" class="btn btn-primary">View Previous</button>
+              <button
+                type="button"
+                class="btn btn-primary"
+                id="modalButton"
+              >More</button>
             </div>
           </div>
         </div>
@@ -141,12 +146,13 @@
                 type="button"
                 class="btn btn-secondary"
                 data-bs-dismiss="modal"
+                id="modalButton"
               >Close</button>
               <button
                 type="button"
                 class="btn btn-primary"
                 id="save-workout"
-              >Save Workout</button>
+              >Save</button>
             </div>
           </div>
         </div>
@@ -158,7 +164,8 @@
     <div class="end col-md-4 px-3" id="left-box-outlines">
       {{! render w get request }}
       <h5>{{quote.quote}} </h5>
-      ~<span>{{quote.author}}</span>
+      ~
+      <span>{{quote.author}}</span>
     </div>
     {{! this div will change in content at h4, depending on page visited }}
     <div class="center col-md-8">

@@ -1,3 +1,7 @@
+* {
+  font-family: "M PLUS 1p", sans-serif;
+}
+
 #headerFavicon {
   width: 25%;
 }
@@ -25,7 +29,11 @@ h2 {
 }
 
 .container {
-  padding: 5px;
+  padding: 1%;
+}
+
+.profileContainer {
+  background-color: var(--white);
 }
 
 .center {
@@ -50,9 +58,8 @@ h2 {
 }
 
 #left-box-outlines {
-  border-right-style: ridge;
-  border-left-style: ridge;
-  border-radius: 10px;
+  border-right-style: double;
+  border-radius: 2%;
 }
 
 /* END CODE RT 6/30   */
@@ -102,6 +109,16 @@ h2 {
   transition: all 0.3s ease-in-out;
 }
 
+#modalButton,
+#add-exercise,
+#save-workout {
+  border: solid 3px var(--darker);
+  width: 8vw;
+  background-color: var(--white);
+  color: var(--darkest);
+  transition: all 0.3s ease-in-out;
+}
+
 #homeSignBtn:hover {
   border: solid 3px var(--medium);
   background-color: var(--medium);
@@ -109,7 +126,10 @@ h2 {
 }
 
 #buttonStyled:hover,
-#logout:hover {
+#logout:hover,
+#modalButton:hover,
+#add-exercise:hover,
+#save-workout:hover {
   border: solid 3px var(--medium);
   background-color: var(--medium);
   color: var(--white);
@@ -144,6 +164,13 @@ h2 {
   background-color: var(--medium);
   color: var(--white);
   transition: all 0.3s ease-in-out;
+}
+
+#profileStyle {
+  border-radius: 2%;
+  padding-bottom: 3%;
+  padding-top: 1%;
+  box-shadow: 0 6px 6px 0 #000000a4;
 }
 
 @media screen and (max-width: 991px) {
