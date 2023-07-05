@@ -99,7 +99,7 @@ $("#add-exercise").click(function (e) {
       <input type="number" name="record_value" class="form-control" id="valueInput${exerciseCount}" required />
       <label for="unitInput${exerciseCount}">Units(lbs, miles, reps)</label>
       <input type="text" name="record_unit" class="form-control" id="unitInput${exerciseCount}" required />
-      <button type="button" class="remove-exercise" data-exercise="${exerciseCount}">Remove Exercise</button>
+      <button type="button" class="remove-exercise" id="add-exercise" data-exercise="${exerciseCount}">Remove</button>
     </div>
   `);
   $.ajax({
