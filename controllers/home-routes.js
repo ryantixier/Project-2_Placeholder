@@ -40,4 +40,17 @@ router.get("/profile", async (req, res) => {
   }
 });
 
+router.get("/invalid", async (req, res) => {
+  try {
+    if (req.session.loggedIn) {
+      res.redirect("/");
+    } else {
+      res.render("invalidLogin");
+    }
+  } catch (err) {
+    console.log(err);
+    res.status(500).json(err);
+  }
+});
+
 module.exports = router;
