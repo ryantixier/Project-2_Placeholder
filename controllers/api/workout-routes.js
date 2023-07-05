@@ -56,8 +56,11 @@ router.post("/new-workout", async (req, res) => {
         console.log(`No exercise found.`);
       }
     }
+    const workoutExercises = await Workout.findByPk(newWorkout.id, {
+      include: Exercise,
+    });
 
-    res.status(200).json(newWorkout);
+    res.status(200).json(workoutExercises.get({ plain: true }));
   } catch (err) {
     res.status(500).json(err);
   }
