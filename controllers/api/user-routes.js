@@ -27,6 +27,7 @@ router.post("/", async (req, res) => {
       );
     }
   } catch (err) {
+    console.log(err);
     res.status(500).json(err);
   }
 });
@@ -47,7 +48,8 @@ router.post("/login", async (req, res) => {
     const validPassword = user.checkPassword(req.body.password);
 
     if (!validPassword) {
-      res.status(400).json({ message: "No user account found!" });
+      console.log('status(400) message: "No user account found!")');
+      passwordVerifyText.style.display = "block";
       return;
     }
 
@@ -60,7 +62,7 @@ router.post("/login", async (req, res) => {
       // res.render("homepage", { user, loggedIn: true });
     });
   } catch (err) {
-    res.status(400).json({ message: "No user account found!" });
+    res.status(400).json({ message: "error" });
   }
 });
 

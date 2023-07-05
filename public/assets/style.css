@@ -173,6 +173,16 @@ h2 {
   box-shadow: 0 6px 6px 0 #000000a4;
 }
 
+#passwordVerifyText {
+  font-size: 90%;
+}
+
+.hide {
+  display: none;
+}
+
+
+
 @media screen and (max-width: 991px) {
   #centeredLogo {
     display: block;

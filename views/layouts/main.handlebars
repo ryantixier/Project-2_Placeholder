@@ -75,6 +75,7 @@
               </div>
               <div class="form-group">
                 <label for="passwordInputLogin">Password</label>
+                <p class="fw-light" id="passwordVerifyText">Please add at least 8 characters including at least 1 uppercase, 1 lowercase and 1 digit.</p>
                 <input type="password" name="password" class="form-control" id="passwordInputLogin" placeholder="Enter Password"/>
               </div>
           </div>
@@ -101,12 +102,20 @@
               </div>
               <div class="form-group">
                 <label for="password">Password</label>
+                <p class="fw-light" id="passwordVerifyText">Please add at least 8 characters including at least 1 uppercase, 1 lowercase and 1 digit.</p>
                 <input type="password" name="password" class="form-control" id="password" placeholder="Enter Password"/>
+                <ul id="passwordMessages">
+                  <li>You Need At Least 1 Lowercase Character</li>
+                  <li>You Need At Least 1 Uppercase Character</li>
+                  <li>You Need At Least 1 Number</li>
+                  <li>You Need At Least 1 Special Character ['/?!']</li>
+                  <li>Your Password Must Be 8 Characters Long</li>
+                </ul>
               </div>
           </div>
           <div class="modal-footer">
-            <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
-            <button type="submit" class="btn btn-primary">Submit</button>
+            <button type="button" class="btn btn-secondary" data-bs-dismiss="modal" id="modalButton">Close</button>
+            <button type="submit" class="btn btn-primary" disabled id="signUpModalButton">Submit</button>
           </div>
             </form>
         </div>
@@ -123,6 +132,7 @@
       <script src="/js/logout.js"></script>
     {{/if}}
     <script src="/js/anime.js"></script>
+    <script src="/js/passChecker.js"></script>
   </body>
 
 </html>
