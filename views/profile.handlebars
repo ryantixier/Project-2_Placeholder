@@ -44,7 +44,7 @@
                 <div id="past-workouts"></div>
               </div>
             </div>
-            <div class="modal-footer">
+            <div class="modal-footer justify-content-center">
               <button
                 type="button"
                 class="btn btn-secondary"
@@ -93,34 +93,52 @@
                 aria-label="Close"
               ></button>
             </div>
-            <div class="modal-body">
+            <div class="modal-body text-center">
               {{! INSERT MODAL CONTENT HERE }}
-              {{! INSERT MODAL CONTENT HERE }}
-              {{! INSERT MODAL CONTENT HERE }}
-              {{! <p>(Insert content form for creation of the workout)</p> }}
-              <h5>Duration</h5>
-              {{! time dropdown }}
-              <input
-                type="text"
-                class="form-control"
-                id="commentsInput"
-                placeholder="Comment"
-                aria-label="Comment"
-              />
-              <input
-                type="number"
-                class="form-control"
-                id="durationInput"
-                placeholder="Duration (mins)"
-                aria-label="Duration (mins)"
-              />
-              <input
-                type="number"
-                class="form-control"
-                id="caloriesInput"
-                placeholder="Calories Burned"
-                aria-label="Calories Burned"
-              />
+              <h5>Overview</h5>
+
+              {{! add comment }}
+              <div class="input-group">
+                <span
+                  class="input-group-text"
+                  id="inputGroup-sizing"
+                >Comment</span>
+                <input
+                  type="text"
+                  class="form-control"
+                  id="commentsInput"
+                  placeholder="Describe Your Goal"
+                  aria-label="Comment"
+                />
+              </div>
+              {{! duration }}
+              <div class="input-group">
+                <span
+                  class="input-group-text"
+                  id="inputGroup-sizing"
+                >Duration</span>
+                <input
+                  type="number"
+                  class="form-control"
+                  id="durationInput"
+                  placeholder="Duration (mins)"
+                  aria-label="Duration (mins)"
+                />
+              </div>
+
+              {{! calories }}
+              <div class="input-group">
+                <span class="input-group-text" id="inputGroup-sizing">Calories
+                  Burned</span>
+                <input
+                  type="number"
+                  class="form-control"
+                  id="caloriesInput"
+                  placeholder="Calories Burned"
+                  aria-label="Calories Burned"
+                />
+              </div>
+              <hr />
               <h5>Type of Workout</h5>
               <div class="dropdown">
                 <a
@@ -141,21 +159,15 @@
                   <li><a class="dropdown-item" href="#">Strength</a></li>
                 </ul>
               </div>
+              <hr />
+
               <h5>Exercises</h5>
-              <div id="exercises-group"></div>
-              <button id="add-exercise">Add</button>
               {{! dropdown for list of exercises }}
-              {{! Leave as a number input }}
-              {{! UNITS = dropdown: lbs, miles, reps }}
-              {{! ADD WORKOUT CARD }}
-              {{! card exercise 1 }}
-              {{! card exercise 2 }}
-              {{! card exercise 3 }}
-              {{! card exercise 1 }}
-              {{! card exercise 1 }}
-              {{! card exercise 1 }}
+              <div id="exercises-group"></div>
+              {{! will add form field: Exercise, Value, Units }}
+              <button id="add-exercise">Add</button>
             </div>
-            <div class="modal-footer">
+            <div class="modal-footer justify-content-center">
               <button
                 type="button"
                 class="btn btn-secondary"
@@ -195,24 +207,3 @@
 </section>
 
 <script src="/js/workout.js"></script>
-
-{{! Area 2 container }}
-{{! <section class="container">
-  <div class="row">
-    <h2>Archive</h2>
-    <hr />
-    <div class="end col-md-4 px-3" id="left-box-outlines">
-      <h5>Previous Workouts...</h5>
-      <p>Workout from (Date of Previous Workout)</p>
-      <p>Workout from (Date of Previous Workout)</p>
-      <p>Workout from (Date of Previous Workout)</p>
-    </div>
-    <div class="center col-md-8">
-      <h5>Progress...</h5>
-      <p>Weight Change: (Tracked Weight Change)</p>
-      <p>Workouts Completed: (Tracked Workouts Completed)</p>
-      <p>Workout Streak: (Tracked Workout Streak)</p>
-    </div>
-  </div>
-
-</section> }}
