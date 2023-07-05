@@ -1,6 +1,6 @@
 {
-    "name": "Workout Wizard",
-    "short_name": "Workout Wizard",
+    "name": "",
+    "short_name": "",
     "icons": [
         {
             "src": "/android-chrome-192x192.png",
@@ -13,7 +13,7 @@
             "type": "image/png"
         }
     ],
-    "theme_color": "#f3ac1c",
-    "background_color": "#f3ac1c",
+    "theme_color": "#ffffff",
+    "background_color": "#ffffff",
     "display": "standalone"
 }
