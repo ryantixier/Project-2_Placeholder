@@ -92,7 +92,49 @@
               {{! INSERT MODAL CONTENT HERE }}
               {{! INSERT MODAL CONTENT HERE }}
               {{! INSERT MODAL CONTENT HERE }}
-              <p>(Insert content form for creation of the workout)</p>
+              {{! <p>(Insert content form for creation of the workout)</p> }}
+              <h5>Duration</h5>
+              {{! time dropdown }}
+              <input
+                type="text"
+                class="form-control"
+                id="commentsInput"
+                placeholder="Comment"
+                aria-label="Comment"
+              />
+              <input
+                type="number"
+                class="form-control"
+                id="durationInput"
+                placeholder="Duration (mins)"
+                aria-label="Duration (mins)"
+              />
+              <input
+                type="number"
+                class="form-control"
+                id="caloriesInput"
+                placeholder="Calories Burned"
+                aria-label="Calories Burned"
+              />
+              <h5>Type of Workout</h5>
+              {{! type dropdown }}
+              {{! strength }}
+              {{! cardio }}
+              {{! flexibility }}
+              {{! sport }}
+              <h5>Exercises</h5>
+              <div id="exercises-group"></div>
+              <button id="add-exercise">Add Exercise</button>
+              {{! dropdown for list of exercises }}
+              {{! Leave as a number input }}
+              {{! UNITS = dropdown: lbs, miles, reps }}
+              {{! ADD WORKOUT CARD }}
+              {{! card exercise 1 }}
+              {{! card exercise 2 }}
+              {{! card exercise 3 }}
+              {{! card exercise 1 }}
+              {{! card exercise 1 }}
+              {{! card exercise 1 }}
             </div>
             <div class="modal-footer">
               <button
@@ -100,7 +142,11 @@
                 class="btn btn-secondary"
                 data-bs-dismiss="modal"
               >Close</button>
-              <button type="button" class="btn btn-primary">Save Workout</button>
+              <button
+                type="button"
+                class="btn btn-primary"
+                id="save-workout"
+              >Save Workout</button>
             </div>
           </div>
         </div>
