@@ -40,14 +40,14 @@ router.post("/login", async (req, res) => {
     });
 
     if (!user) {
-      res.status(400).json({ message: "No user account found!" });
+      res.redirect("/invalid");
       return;
     }
 
     const validPassword = user.checkPassword(req.body.password);
 
     if (!validPassword) {
-      res.status(400).json({ message: "No user account found!" });
+      res.redirect("/invalid");
       return;
     }
 
@@ -60,7 +60,8 @@ router.post("/login", async (req, res) => {
       // res.render("homepage", { user, loggedIn: true });
     });
   } catch (err) {
-    res.status(400).json({ message: "No user account found!" });
+    console.log(err);
+    res.status(500).json(err);
   }
 });
 

@@ -8,7 +8,7 @@ const logout = async function () {
     //this will send user to login/sign up page
     document.location.replace("/");
   } else {
-    alert("Failed to log out");
+    alert("Failed to log out!");
   }
 };
 
