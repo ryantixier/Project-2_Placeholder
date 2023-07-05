@@ -122,3 +122,25 @@ $("#exercises-group").on("click", ".remove-exercise", function (e) {
   const exerciseNumber = $(this).data("exercise");
   $(`#exercise${exerciseNumber}`).remove();
 });
+
+// CODE RT 7/5/23 @ 11:40A
+// CODE RT 7/5/23 @ 11:40A
+$(document).ready(selectDropdownItems);
+
+// pertains to selecting the item in the dropdown
+function selectDropdownItems() {
+  const dropdownItems = $(".dropdown-item");
+  dropdownItems.each((index, item) => {
+    $(item).click(reflectText);
+  });
+}
+
+// after selectDropdownItems completes, reflects selected item's text
+function reflectText() {
+  const selectedItemText = $(this).text().trim();
+  const dropdownButton = $("#dropdownMenuButton");
+  dropdownButton.text(selectedItemText);
+}
+
+// END CODE RT 7/5/23 @ 11:40A
+// END CODE RT 7/5/23 @ 11:40A
