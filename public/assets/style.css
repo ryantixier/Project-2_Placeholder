@@ -110,6 +110,7 @@ h2 {
 }
 
 #modalButton,
+#signUpModalButton,
 #add-exercise,
 #save-workout,
 #dropdownMenuButton {
@@ -129,6 +130,7 @@ h2 {
 #buttonStyled:hover,
 #logout:hover,
 #modalButton:hover,
+#signUpModalButton:hover,
 #add-exercise:hover,
 #save-workout:hover {
   border: solid 3px var(--medium);
@@ -178,6 +180,28 @@ h2 {
   padding-top: 1%;
   box-shadow: 0 6px 6px 0 #000000a4;
 }
+
+#passwordVerifyText {
+  font-size: 90%;
+}
+
+.hide {
+  display: none;
+}
+
+#passwordMessages {
+  font-size: 80%;
+  list-style: none;
+}
+
+.passwordMessageRed {
+  color: var(--darker);
+}
+
+.passwordMessageGreen {
+  color: #046307;
+}
+
 
 @media screen and (max-width: 991px) {
   #centeredLogo {
