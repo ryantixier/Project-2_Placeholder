@@ -35,6 +35,24 @@ function displayWorkouts(workouts) {
 
 pastBtn.click(getPastWorkouts);
 
+//display current workout
+function displayWorkout(workout) {
+  const currentContainer = $("#current-workout");
+  currentContainer.empty();
+
+  const createdAt = new Date(workout.createdAt);
+  const formattedDate = `${
+    createdAt.getMonth() + 1
+  }-${createdAt.getDate()}-${createdAt.getFullYear()}`;
+
+  const workoutElem = `<p> Current Workout -Date: ${formattedDate}  - Duration: ${workout.duration} minutes, Calories Burned: ${workout.calories_burned}</p>`;
+  currentContainer.append(workoutElem);
+  workout.exercises.forEach((exercise) => {
+    const exerciseElem = `<li>Exercise: ${exercise.exercise_name}, ${exercise.exercise_desc}, ${exercise.personalBest.record_value} ${exercise.personalBest.record_unit}</li>`;
+    currentContainer.append(exerciseElem);
+  });
+}
+
 $("#save-workout").click(function (e) {
   e.preventDefault();
   //get the input values from the workout form
@@ -75,6 +93,16 @@ $("#save-workout").click(function (e) {
           $(`#unitInput${i}`).val("");
         }
         alert("Workout saved!");
+        $.ajax({
+          type: "GET",
+          url: `/api/workout/${data.id}`,
+          success: function (workout) {
+            displayWorkout(workout);
+          },
+          error: function () {
+            alert("error loading the workout");
+          },
+        });
       }
 
       $("#createWorkout").modal("hide");
@@ -99,7 +127,7 @@ $("#add-exercise").click(function (e) {
       <input type="number" name="record_value" class="form-control" id="valueInput${exerciseCount}" required />
       <label for="unitInput${exerciseCount}">Units(lbs, miles, reps)</label>
       <input type="text" name="record_unit" class="form-control" id="unitInput${exerciseCount}" required />
-      <button type="button" class="remove-exercise" data-exercise="${exerciseCount}">Remove Exercise</button>
+      <button type="button" class="remove-exercise" id="add-exercise" data-exercise="${exerciseCount}">Remove</button>
     </div>
   `);
   $.ajax({
@@ -122,3 +150,25 @@ $("#exercises-group").on("click", ".remove-exercise", function (e) {
   const exerciseNumber = $(this).data("exercise");
   $(`#exercise${exerciseNumber}`).remove();
 });
+
+// CODE RT 7/5/23 @ 11:40A
+// CODE RT 7/5/23 @ 11:40A
+$(document).ready(selectDropdownItems);
+
+// pertains to selecting the item in the dropdown
+function selectDropdownItems() {
+  const dropdownItems = $(".dropdown-item");
+  dropdownItems.each((index, item) => {
+    $(item).click(reflectText);
+  });
+}
+
+// after selectDropdownItems completes, reflects selected item's text
+function reflectText() {
+  const selectedItemText = $(this).text().trim();
+  const dropdownButton = $("#dropdownMenuButton");
+  dropdownButton.text(selectedItemText);
+}
+
+// END CODE RT 7/5/23 @ 11:40A
+// END CODE RT 7/5/23 @ 11:40A

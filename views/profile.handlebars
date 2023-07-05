@@ -122,14 +122,28 @@
                 aria-label="Calories Burned"
               />
               <h5>Type of Workout</h5>
-              {{! type dropdown }}
-              {{! strength }}
-              {{! cardio }}
-              {{! flexibility }}
-              {{! sport }}
+              <div class="dropdown">
+                <a
+                  class="btn btn-secondary dropdown-toggle"
+                  type="button"
+                  id="dropdownMenuButton"
+                  data-bs-toggle="dropdown"
+                  aria-expanded="false"
+                  href="#"
+                >
+                  Workout Type
+                  <span id="type-selection"></span>
+                </a>
+                <ul class="dropdown-menu">
+                  <li><a class="dropdown-item" href="#">Cardio</a></li>
+                  <li><a class="dropdown-item" href="#">Flexibility</a></li>
+                  <li><a class="dropdown-item" href="#">Sport</a></li>
+                  <li><a class="dropdown-item" href="#">Strength</a></li>
+                </ul>
+              </div>
               <h5>Exercises</h5>
               <div id="exercises-group"></div>
-              <button id="add-exercise">Add Exercise</button>
+              <button id="add-exercise">Add</button>
               {{! dropdown for list of exercises }}
               {{! Leave as a number input }}
               {{! UNITS = dropdown: lbs, miles, reps }}
@@ -174,6 +188,9 @@
       <p>Workouts Completed: (Tracked Workouts Completed)</p>
       <p>Workout Streak: (Tracked Workout Streak)</p>
     </div>
+  </div>
+  <div class="row">
+    <div id="current-workout"></div>
   </div>
 </section>
 
