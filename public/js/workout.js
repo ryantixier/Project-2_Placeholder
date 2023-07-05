@@ -6,14 +6,17 @@ async function getPastWorkouts() {
   const response = await fetch("/api/workout/past-workouts");
   const data = await response.json();
 
+  data.sort((a, b) => new Date(b.createdAt) - new Date(a.createdAt));
+
   displayWorkouts(data);
 }
 
 //workouts passed in is data retrieved from fetch call
 function displayWorkouts(workouts) {
+  const recentWorkouts = workouts.slice(0, 5);
   pastContainer.empty();
   //looping through the workouts array for each workout
-  workouts.forEach((workout) => {
+  recentWorkouts.forEach((workout) => {
     const createdAt = new Date(workout.createdAt);
     const formattedDate = `${
       createdAt.getMonth() + 1
@@ -62,7 +65,19 @@ $("#save-workout").click(function (e) {
       exercises: exercises,
     },
     success: function (data) {
-      alert("Workout saved!");
+      $("#commentsInput").val("");
+      $("#durationInput").val("");
+      $("#caloriesInput").val("");
+      for (let i = 1; i <= exerciseCount; i++) {
+        if ($(`#exerciseInput${i}`).length) {
+          $(`#exerciseInput${i}`).val("");
+          $(`#valueInput${i}`).val("");
+          $(`#unitInput${i}`).val("");
+        }
+        alert("Workout saved!");
+      }
+
+      $("#createWorkout").modal("hide");
     },
     error: function () {
       alert("error");
@@ -79,7 +94,7 @@ $("#add-exercise").click(function (e) {
   $("#exercises-group").append(`
     <div id="exercise${exerciseCount}" class="form-group">
       <label for="exerciseInput${exerciseCount}">Exercise</label>
-      <input type="number" name="exercise_id" class="form-control" id="exerciseInput${exerciseCount}" required />
+      <select name="exercise_id" class="form-control" id="exerciseInput${exerciseCount}" required></select>
       <label for="valueInput${exerciseCount}">Value</label>
       <input type="number" name="record_value" class="form-control" id="valueInput${exerciseCount}" required />
       <label for="unitInput${exerciseCount}">Units(lbs, miles, reps)</label>
@@ -87,6 +102,19 @@ $("#add-exercise").click(function (e) {
       <button type="button" class="remove-exercise" data-exercise="${exerciseCount}">Remove Exercise</button>
     </div>
   `);
+  $.ajax({
+    type: "GET",
+    url: "/api/exercise",
+    success: function (exercises) {
+      exercises.forEach(function (exercise) {
+        const option = `<option value="${exercise.id}">${exercise.exercise_name}</option>`;
+        $(`#exerciseInput${exerciseCount}`).append(option);
+      });
+    },
+    error: function () {
+      alert("error loading exercises");
+    },
+  });
 });
 //event listener for removing an exercise in the group of exercises
 $("#exercises-group").on("click", ".remove-exercise", function (e) {
