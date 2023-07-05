@@ -110,6 +110,7 @@ h2 {
 }
 
 #modalButton,
+#signUpModalButton,
 #add-exercise,
 #save-workout {
   border: solid 3px var(--darker);
@@ -128,6 +129,7 @@ h2 {
 #buttonStyled:hover,
 #logout:hover,
 #modalButton:hover,
+#signUpModalButton:hover,
 #add-exercise:hover,
 #save-workout:hover {
   border: solid 3px var(--medium);
@@ -181,6 +183,18 @@ h2 {
   display: none;
 }
 
+#passwordMessages {
+  font-size: 80%;
+  list-style: none;
+}
+
+.passwordMessageRed {
+  color: var(--darker);
+}
+
+.passwordMessageGreen {
+  color: #046307;
+}
 
 
 @media screen and (max-width: 991px) {

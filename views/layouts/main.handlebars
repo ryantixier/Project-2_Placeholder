@@ -102,14 +102,14 @@
               </div>
               <div class="form-group">
                 <label for="password">Password</label>
-                <p class="fw-light" id="passwordVerifyText">Please add at least 8 characters including at least 1 uppercase, 1 lowercase and 1 digit.</p>
                 <input type="password" name="password" class="form-control" id="password" placeholder="Enter Password"/>
                 <ul id="passwordMessages">
-                  <li>You Need At Least 1 Lowercase Character</li>
-                  <li>You Need At Least 1 Uppercase Character</li>
-                  <li>You Need At Least 1 Number</li>
-                  <li>You Need At Least 1 Special Character ['/?!']</li>
-                  <li>Your Password Must Be 8 Characters Long</li>
+                  {{!-- this order matters, maintain li order on handlebars changes --}}
+                  <li class="passwordMessageRed"><span id="liSpan1" class="fw-bold">X </span>You Need At Least 1 Lowercase Character</li>
+                  <li class="passwordMessageRed"><span id="liSpan2" class="fw-bold">X </span>You Need At Least 1 Uppercase Character</li>
+                  <li class="passwordMessageRed"><span id="liSpan3" class="fw-bold">X </span>You Need At Least 1 Number</li>
+                  <li class="passwordMessageRed"><span id="liSpan4" class="fw-bold">X </span>You Need At Least 1 Special Character ['/?!']</li>
+                  <li class="passwordMessageRed"><span id="liSpan5" class="fw-bold">X </span>Your Password Must Be 8 Characters Long</li>
                 </ul>
               </div>
           </div>

@@ -3,6 +3,12 @@ const signUpSubmitEl = $("#signUpModalButton");
 const [liLower, liUpper, liNum, liSpec, liLen] =
   $("#passwordMessages").children();
 
+const liSpan1 = $("#liSpan1");
+const liSpan2 = $("#liSpan2");
+const liSpan3 = $("#liSpan3");
+const liSpan4 = $("#liSpan4");
+const liSpan5 = $("#liSpan5");
+
 password.on("change textInput input", (e) => {
   const userInput = e.target.value;
   //   console.log(userInput);
@@ -19,33 +25,55 @@ password.on("change textInput input", (e) => {
   //1 special
 
   if (lenCheck) {
-    $(liLen).addClass("hide");
+    $(liLen).addClass("passwordMessageGreen");
+    $(liLen).removeClass("passwordMessageRed");
+    liSpan5.text("✓ ");
   } else {
-    $(liLen).removeClass("hide");
+    $(liLen).addClass("passwordMessageRed");
+    $(liLen).removeClass("passwordMessageGreen");
+    liSpan5.text("X ");
   }
   if (lowerCheck) {
-    $(liLower).addClass("hide");
+    $(liLower).addClass("passwordMessageGreen");
+    $(liLower).removeClass("passwordMessageRed");
+    liSpan1.text("✓ ");
   } else {
-    $(liLower).removeClass("hide");
+    $(liLower).addClass("passwordMessageRed");
+    $(liLower).removeClass("passwordMessageGreen");
+    liSpan1.text("X ");
   }
   if (upperCheck) {
-    $(liUpper).addClass("hide");
+    $(liUpper).addClass("passwordMessageGreen");
+    $(liUpper).removeClass("passwordMessageRed");
+    liSpan2.text("✓ ");
   } else {
-    $(liUpper).removeClass("hide");
+    $(liUpper).addClass("passwordMessageRed");
+    $(liUpper).removeClass("passwordMessageGreen");
+    liSpan2.text("X ");
   }
   if (numCheck) {
-    $(liNum).addClass("hide");
+    $(liNum).addClass("passwordMessageGreen");
+    $(liNum).removeClass("passwordMessageRed");
+    liSpan3.text("✓ ");
   } else {
-    $(liNum).removeClass("hide");
+    $(liNum).addClass("passwordMessageRed");
+    $(liNum).removeClass("passwordMessageGreen");
+    liSpan3.text("X ");
   }
   if (specCheck) {
-    $(liSpec).addClass("hide");
+    $(liSpec).addClass("passwordMessageGreen");
+    $(liSpec).removeClass("passwordMessageRed");
+    liSpan4.text("✓ ");
   } else {
-    $(liSpec).removeClass("hide");
+    $(liSpec).addClass("passwordMessageRed");
+    $(liSpec).removeClass("passwordMessageGreen");
+    liSpan4.text("X ");
   }
 
   if (lenCheck && lowerCheck && upperCheck && numCheck && specCheck) {
     console.log("password checks out, boss");
     signUpSubmitEl.attr("disabled", false);
+  } else {
+    signUpSubmitEl.attr("disabled", true);
   }
 });
