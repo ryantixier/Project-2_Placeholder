@@ -209,6 +209,14 @@ h2 {
   color: #046307;
 }
 
+#yogaPic {
+  width: 15vw;
+  height: 12vh;
+  border-radius: 4%;
+  border: solid 3px var(--darker);
+  box-shadow: 0px 2px 3px #000000;
+}
+
 @media screen and (max-width: 991px) {
   #centeredLogo {
     display: block;
