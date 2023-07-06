@@ -1,5 +1,6 @@
 const router = require("express").Router();
-const { Quote, User } = require("../models");
+const sequelize = require("../config/connection");
+const { Quote, User, Workout } = require("../models");
 
 router.get("/", async (req, res) => {
   try {
@@ -22,6 +23,14 @@ router.get("/profile", async (req, res) => {
       attributes: ["author", ["text", "quote"]],
     });
 
+    const workoutCount = await Workout.findAll({
+      where: { user_id: req.session.userId },
+      attributes: [
+        "user_id",
+        [sequelize.fn("COUNT", sequelize.col("id")), "workouts"],
+      ],
+    });
+
     //produce a random quote from the array of objects
     const quoteIndex = Math.floor(Math.random() * quoteData.length);
     const quote = quoteData[quoteIndex].get({ plain: true });
@@ -30,6 +39,7 @@ router.get("/profile", async (req, res) => {
         loggedIn: req.session.loggedIn,
         username: req.session.username,
         quote,
+        totalWorkouts: workoutCount[0].dataValues.workouts,
       });
     } else {
       res.redirect("/");
