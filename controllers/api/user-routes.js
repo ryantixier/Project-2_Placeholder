@@ -21,7 +21,6 @@ router.post("/", async (req, res) => {
         res.redirect("/");
       });
     } else {
-      //TODO: send a message to user on the front end
       console.log(
         `msg: "The password must contain at least 8 characters including at least 1 uppercase, 1 lowercase and one digit."`
       );
@@ -57,8 +56,6 @@ router.post("/login", async (req, res) => {
       req.session.username = user.username;
       req.session.loggedIn = true;
       res.redirect("/");
-
-      // res.render("homepage", { user, loggedIn: true });
     });
   } catch (err) {
     console.log(err);
