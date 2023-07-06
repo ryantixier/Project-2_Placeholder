@@ -12,7 +12,7 @@ const liSpan5 = $("#liSpan5");
 password.on("change textInput input", (e) => {
   const userInput = e.target.value;
   //   console.log(userInput);
-  const lenCheck = userInput.length > 8;
+  const lenCheck = userInput.length > 7;
   const lowerCheck = /[a-z]/.test(userInput);
   const upperCheck = /[A-Z]/.test(userInput);
   const numCheck = /\d/.test(userInput);
