@@ -2,11 +2,14 @@
   {{! contains top row of information: QOTD and AREA 2 ("At a Glance...", "Today") }}
   {{! QOTD div }}
   <div class="row">
-    <div class="col-md-8">
+    <div class="col-md-12">
       <h2>Welcome {{username}}!</h2>
     </div>
     {{! View Workout Archive }}
-    <div class="col-md-2" id="archive">
+  </div>
+  <div class="row">
+    <div class="col-md-4 col-sm-2"></div>
+    <div class="col-md-2 align-middle col-sm-4" id="archive">
       <button
         type="button"
         class="btn btn-no-style btn-primary"
@@ -65,7 +68,7 @@
 
     </div>
     {{! Create New Workout }}
-    <div class="col-md-2" id="create-workout">
+    <div class="col-md-2 align-middle col-sm-4" id="create-workout">
       <button
         type="button"
         class="btn btn-no-style"
@@ -184,18 +187,25 @@
                 id="save-workout"
               >Save</button>
             </div>
+
           </div>
         </div>
       </div>
 
     </div>
-
+    <div class="col-md-4 col-sm-2"></div>
     <hr />
-    <div class="end col-md-4 px-3" id="left-box-outlines">
+    <div
+      class="end col-md-4 px-3 align-items-center justify-content-between"
+      id="left-box-outlines"
+    >
       {{! render w get request }}
-      <h5>{{quote.quote}} </h5>
-      ~
-      <span>{{quote.author}}</span>
+      <div class="container">
+        <div class="row">
+          <h5>{{quote.quote}} </h5>
+        </div>
+        <div class="row"> <span>~ {{quote.author}}</span></div>
+      </div>
     </div>
     {{! this div will change in content at h4, depending on page visited }}
     <div class="center col-md-8">
