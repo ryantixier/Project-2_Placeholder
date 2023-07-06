@@ -45,13 +45,13 @@
         </div>
         <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation"><span class="navbar-toggler-icon"></span></button>
         <div class="collapse navbar-collapse justify-content-end" id="navbarNav">
-          <ul class="navbar-nav">
+          <ul class="navbar-nav" id="logoutNav">
             {{#if loggedIn}}
-              <li class="nav-item">
+              <li class="nav-item" id="navItem">
                 <button class="nav-link btn btn-no-style" id="logout">Log Out</button>
               </li>
             {{else}}
-              <li class="nav-item">
+              <li class="nav-item" id="navItem">
                 <button type="button" class="btn btn-no-style nav-link" id="buttonStyled" data-bs-toggle="modal" data-bs-target="#loginModal">Log In</button>
               </li>
             {{/if}}
