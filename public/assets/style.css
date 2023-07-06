@@ -6,7 +6,6 @@
   width: 25%;
 }
 
-/* EK: */
 :root {
   --darkest: #323232;
   --darker: #902413;
@@ -61,8 +60,6 @@ h2 {
   border-right-style: double;
   border-radius: 2%;
 }
-
-/* END CODE RT 6/30   */
 
 .homeImg1 {
   background: url("../images/ww_image_1.png") no-repeat center center fixed;
