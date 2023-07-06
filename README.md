@@ -15,10 +15,11 @@ Track your workouts, set new records, and share your progress with your friends 
 3. [License](#license)
 4. [Contributors](#contributors)
 5. [Questions](#questions)
+6. [Credits](#credits)
 
 ## Installation
 
-      * Simply navigate to [Workout Wizard Placeholder Link](google.com)
+Simply navigate to <a href="http://the-workout-wizard-7d5c29c6d6dd.herokuapp.com/">Workout Wizard</a>
 
 ## Usage
 
@@ -26,6 +27,8 @@ Free yourself from any gym's personal app. Workout Wizard will never cost money,
 
 ![The Workout Wizard Home Page](./public/images/screenshot_1.png)
 ![The Workout Wizard User Area](./public/images/screenshot_2.png)
+![The Workout Wizard Create Workout Window](./public/images/screenshot_2_create.png)
+![The Workout Wizard Past Workout Log](./public/images/screenshot_2_past.png)
 
 ## License
 
@@ -55,3 +58,11 @@ This project was built by @ryantixier, @jordanolguin, @Ms-Marlena, @Lone1ne, and
 ## Questions
 
 Please don't hesitate to reach out to the contributors or open an issue on the repository (@ryantixier/Workout-Wizard) with any questions or bugs.
+
+## Credits
+
+Tutorials used:
+
+<a href="https://www.youtube.com/watch?v=9kR1K1bgIDY&t=27s">"How to add favicon in HTML VS Code," Tech By Usman</a>
+
+<a href="https://www.youtube.com/watch?v=uRDLFXxihgc&t=92s">"Anime.js Tutorial - JavaScript Animation Engine in 10 Minutes," Red Stapler</a>
