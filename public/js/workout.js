@@ -1,5 +1,35 @@
 const pastBtn = $("#archive-button");
 const pastContainer = $("#past-workouts");
+const saveBtn = $("#save-workout");
+const addExerciseBtn = $("#add-exercise");
+const removeExerciseBtn = $("#exercises-group");
+const workoutCompleteBtn = $("#workout-completed");
+//keep track of how many exercises a user adds
+let exerciseCount = 0;
+
+//load in current workout if one in local storage
+$(document).ready(function () {
+  const workout = JSON.parse(localStorage.getItem("currentWorkout"));
+  if (workout) {
+    displayWorkout(workout);
+  }
+});
+$(document).ready(selectDropdownItems);
+
+// pertains to selecting the item in the dropdown
+function selectDropdownItems() {
+  const dropdownItems = $(".dropdown-item");
+  dropdownItems.each((index, item) => {
+    $(item).click(reflectText);
+  });
+}
+
+// after selectDropdownItems completes, reflects selected item's text
+function reflectText() {
+  const selectedItemText = $(this).text().trim();
+  const dropdownButton = $("#dropdownMenuButton");
+  dropdownButton.text(selectedItemText);
+}
 
 //fetch call for past workouts
 async function getPastWorkouts() {
@@ -22,7 +52,12 @@ function displayWorkouts(workouts) {
       createdAt.getMonth() + 1
     }-${createdAt.getDate()}-${createdAt.getFullYear()}`;
 
-    const workoutElement = `<p> WorkoutID ${workout.id} -Date: ${formattedDate}  - Duration: ${workout.duration} minutes, Calories Burned: ${workout.calories_burned}</p>`;
+    const workoutElement = `
+    <div class="mt-4">
+      <h5 class="text-center">Date: ${formattedDate}</h5>
+      <p>Duration: ${workout.duration} minutes</p>
+      <p>Calories Burned: ${workout.calories_burned}</p>
+      <ul>`;
 
     pastContainer.append(workoutElement);
     //looping through exercises array inside the workout loop to display exercise data
@@ -30,14 +65,14 @@ function displayWorkouts(workouts) {
       const exerciseElement = `<li>Exercise: ${exercise.exercise_name}, ${exercise.personalBest.record_value} ${exercise.personalBest.record_unit}</li>`;
       pastContainer.append(exerciseElement);
     });
+    pastContainer.append(`<hr></ul></div>`);
   });
 }
-
-pastBtn.click(getPastWorkouts);
 
 //display current workout
 function displayWorkout(workout) {
   const currentContainer = $("#current-workout");
+  const completedButton = $("#workout-completed");
   currentContainer.empty();
 
   const createdAt = new Date(workout.createdAt);
@@ -45,15 +80,46 @@ function displayWorkout(workout) {
     createdAt.getMonth() + 1
   }-${createdAt.getDate()}-${createdAt.getFullYear()}`;
 
-  const workoutElem = `<p> Current Workout -Date: ${formattedDate}  - Duration: ${workout.duration} minutes, Calories Burned: ${workout.calories_burned}</p>`;
+  const workoutElem = `
+  <div class="card mb-3">
+    <div class="card-header">
+      Current Workout - Date: ${formattedDate}
+    </div>
+    <div class="card-body">
+      <h5 class="card-title">Duration: ${workout.duration} minutes</h5>
+      <p class="card-text">Calories Burned: ${workout.calories_burned}</p>
+    </div>
+  </div>`;
+
+  //store the current workout in local storage
+  localStorage.setItem("currentWorkout", JSON.stringify(workout));
+
   currentContainer.append(workoutElem);
   workout.exercises.forEach((exercise) => {
-    const exerciseElem = `<li>Exercise: ${exercise.exercise_name}, ${exercise.exercise_desc}, ${exercise.personalBest.record_value} ${exercise.personalBest.record_unit}</li>`;
+    const exerciseElem = `
+    <div class="card mb-3">
+      <div class="card-header">
+        Exercise: ${exercise.exercise_name}
+      </div>
+      <div class="card-body">
+        <p class="card-text">${exercise.exercise_desc}</p>
+        <p class="card-text">Goal: ${exercise.personalBest.record_value} ${exercise.personalBest.record_unit}</p>
+      </div>
+    </div>`;
     currentContainer.append(exerciseElem);
   });
+  completedButton.show();
 }
 
-$("#save-workout").click(function (e) {
+workoutCompleteBtn.click(function () {
+  $("#current-workout").empty();
+  $(this).hide();
+  localStorage.removeItem("currentWorkout");
+});
+
+pastBtn.click(getPastWorkouts);
+
+saveBtn.click(function (e) {
   e.preventDefault();
   //get the input values from the workout form
   const comments = $("#commentsInput").val();
@@ -92,7 +158,6 @@ $("#save-workout").click(function (e) {
           $(`#valueInput${i}`).val("");
           $(`#unitInput${i}`).val("");
         }
-        alert("Workout saved!");
         $.ajax({
           type: "GET",
           url: `/api/workout/${data.id}`,
@@ -108,14 +173,13 @@ $("#save-workout").click(function (e) {
       $("#createWorkout").modal("hide");
     },
     error: function () {
-      alert("error");
+      alert("error saving workout");
     },
   });
 });
-//keep track of how many exercises a user adds
-let exerciseCount = 0;
+
 //event listener for an add-exercise button
-$("#add-exercise").click(function (e) {
+addExerciseBtn.click(function (e) {
   e.preventDefault();
   exerciseCount++;
   //append new exercise input fields to exercise-group div
@@ -144,31 +208,10 @@ $("#add-exercise").click(function (e) {
     },
   });
 });
+
 //event listener for removing an exercise in the group of exercises
-$("#exercises-group").on("click", ".remove-exercise", function (e) {
+removeExerciseBtn.on("click", ".remove-exercise", function (e) {
   e.preventDefault();
   const exerciseNumber = $(this).data("exercise");
   $(`#exercise${exerciseNumber}`).remove();
 });
-
-// CODE RT 7/5/23 @ 11:40A
-// CODE RT 7/5/23 @ 11:40A
-$(document).ready(selectDropdownItems);
-
-// pertains to selecting the item in the dropdown
-function selectDropdownItems() {
-  const dropdownItems = $(".dropdown-item");
-  dropdownItems.each((index, item) => {
-    $(item).click(reflectText);
-  });
-}
-
-// after selectDropdownItems completes, reflects selected item's text
-function reflectText() {
-  const selectedItemText = $(this).text().trim();
-  const dropdownButton = $("#dropdownMenuButton");
-  dropdownButton.text(selectedItemText);
-}
-
-// END CODE RT 7/5/23 @ 11:40A
-// END CODE RT 7/5/23 @ 11:40A
