@@ -19,7 +19,7 @@ Track your workouts, set new records, and share your progress with your friends 
 
 ## Installation
 
-Simply navigate to <a href="http://the-workout-wizard-7d5c29c6d6dd.herokuapp.com/">Workout Wizard</a>
+Simply navigate to <a href="https://the-workout-wizard-7d5c29c6d6dd.herokuapp.com/">Workout Wizard</a>
 
 ## Usage
 
@@ -58,6 +58,8 @@ This project was built by @ryantixier, @jordanolguin, @Ms-Marlena, @Lone1ne, and
 ## Questions
 
 Please don't hesitate to reach out to the contributors or open an issue on the repository (@ryantixier/Workout-Wizard) with any questions or bugs.
+
+Repository: https://github.com/ryantixier/Workout-Wizard
 
 ## Credits
 
